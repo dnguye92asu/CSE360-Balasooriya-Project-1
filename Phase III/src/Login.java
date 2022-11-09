@@ -18,7 +18,6 @@ public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // TODO Auto-generated method stub
 
         Label role = new Label("What's your role at ASU's Pizza"); // ask to display appropriate UI
         Button studentButton = new Button("Student");
@@ -50,6 +49,26 @@ public class Login extends Application {
                     System.err.println(e.getClass().getName() + ": " + e.getMessage());
                 }
 
+            }
+        });
+
+        staffButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                //open the UI for staff members
+                try {
+                    //TODO
+                    Stage staffUI = new Stage();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("staff.fxml")));
+                    staffUI.setTitle("Pending orders");
+                    staffUI.setScene(new Scene(root, 760, 400));
+                    staffUI.show();
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    e.printStackTrace();
+                    System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                }
             }
         });
     }
