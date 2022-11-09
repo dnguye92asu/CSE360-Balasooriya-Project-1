@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student_orderUI">
+   <children>
+      <SplitPane dividerPositions="0.5000000000000001" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="pizzaTypeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="39.0" prefHeight="26.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Choose your pizza types:" textAlignment="CENTER" />
+                  <RadioButton fx:id="pepperoniButton" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Pepperoni          $12">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="vegButton" layoutX="14.0" layoutY="123.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Vegetable          $10" toggleGroup="$group" />
+                  <RadioButton fx:id="cheeseButton" layoutX="14.0" layoutY="168.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Cheese               $15" toggleGroup="$group" />
+                  <Label fx:id="toppingLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="237.0" prefHeight="26.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Choose your toppings" textAlignment="CENTER" />
+                  <CheckBox fx:id="mushroomButton" layoutX="14.0" layoutY="292.0" mnemonicParsing="false" text="Mushrooms" />
+                  <CheckBox fx:id="onionButton" layoutX="139.0" layoutY="292.0" mnemonicParsing="false" text="Onion" />
+                  <CheckBox fx:id="olivesButton" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" text="Olives" />
+                  <CheckBox fx:id="extraButton" layoutX="139.0" layoutY="340.0" mnemonicParsing="false" text="Extra Cheese" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="summaryLabel" alignment="CENTER" layoutX="72.0" layoutY="31.0" prefHeight="18.0" prefWidth="150.0" text="Order">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="orderTextArea" editable="false" layoutX="16.0" layoutY="74.0" prefHeight="162.0" prefWidth="263.0" />
+                  <TextArea fx:id="totalTextArea" editable="false" layoutX="111.0" layoutY="255.0" prefHeight="25.0" prefWidth="167.0" promptText="Total" />
+                  <Button fx:id="placeOrderButton" alignment="CENTER" layoutX="92.0" layoutY="335.0" mnemonicParsing="false" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Place your order" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
