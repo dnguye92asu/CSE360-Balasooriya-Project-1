@@ -60,9 +60,9 @@ public class Login extends Application {
                 try {
                     //TODO
                     Stage staffUI = new Stage();
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("staff.fxml")));
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("staffLogin.fxml")));
                     staffUI.setTitle("Pending orders");
-                    staffUI.setScene(new Scene(root, 760, 400));
+                    staffUI.setScene(new Scene(root, 200, 134));
                     staffUI.show();
                 } catch (Exception e) {
                     // TODO: handle exception

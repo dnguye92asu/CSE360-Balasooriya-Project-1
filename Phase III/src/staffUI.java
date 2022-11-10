@@ -1,38 +1,67 @@
+import java.util.Objects;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class staffUI {
 
-    //TODO
-    //Make an pizza_order class
+    @FXML
+    private Button loginButton;
 
     @FXML
-    private Button cookButton;
+    private Label messageLabel;
 
     @FXML
-    private TitledPane cookingPane;
+    private TextField usernameField;
 
     @FXML
-    private TableView<?> cookingTable;
+    void validateLogin(ActionEvent event) {
+        if (usernameField.getText().equals("agent")) {
+            try {
+                //TODO
+                //open the processing agent UI
+                Stage agent = new Stage();
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agent.fxml")));
+                agent.setTitle("Pending orders");
+                agent.setScene(new Scene(root, 342, 400));
+                agent.show();
 
-    @FXML
-    private Button finalizeButton;
+                //close the login window
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                stage.close();
+            } catch (Exception e) {
+                // TODO: handle exception
+                e.printStackTrace();
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            }
+        } else if (usernameField.getText().equals("cook")) {
+            try {
+                //TODO
+                //open the cook UI
+                Stage cook = new Stage();
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("cook.fxml")));
+                cook.setTitle("Pending orders");
+                cook.setScene(new Scene(root, 760, 400));
+                cook.show();
 
-    @FXML
-    private Button finishButton;
-
-    @FXML
-    private TitledPane finishedPane;
-
-    @FXML
-    private TableView<?> finishedTable;
-
-    @FXML
-    private TitledPane readyPane;
-
-    @FXML
-    private TableView<?> readyTable;
+                //close the login window
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                stage.close();
+            } catch (Exception e) {
+                // TODO: handle exception
+                e.printStackTrace();
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            }
+        } else {
+            messageLabel.setText("Wrong credentials. Please try again");
+        }
+    }
 
 }

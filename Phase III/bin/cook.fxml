@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staffUI">
    <children>
       <TitledPane fx:id="readyPane" animated="false" layoutX="24.0" layoutY="20.0" prefHeight="325.0" prefWidth="214.0" text="Ready to Cook">

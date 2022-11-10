@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agentUI">
+   <children>
+      <TitledPane fx:id="readyPane" animated="false" layoutX="61.0" layoutY="37.0" prefHeight="325.0" prefWidth="214.0" text="Pending orders">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="readyTable" layoutX="2.0" prefHeight="259.0" prefWidth="207.0">
+                    <columns>
+                        <TableColumn prefWidth="212.80001527071" text="Order" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="cookButton" layoutX="150.0" layoutY="265.0" mnemonicParsing="false" text="Ready" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

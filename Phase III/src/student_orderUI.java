@@ -3,7 +3,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -46,9 +45,6 @@ public class student_orderUI {
     private AnchorPane parentPane;
 
     @FXML
-    private PasswordField passwordField;
-
-    @FXML
     private RadioButton pepperoniButton;
 
     @FXML
@@ -82,7 +78,7 @@ public class student_orderUI {
     void validateLogin(ActionEvent event) {
         messageLabel.setWrapText(true);
         //placeholder credentials
-        if (usernameField.getText().equals("asustudent") && passwordField.getText().equals("12345")) {
+        if (usernameField.getText().equals("asustudent")) {
             messageLabel.setText("Your order has been placed!!");
 
             //accept order
