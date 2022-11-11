@@ -1,3 +1,9 @@
+package com.example.phaseiiicode;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +16,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
 public class student_orderUI {
+    File file = new File("C:\\Users\\Benit\\OneDrive\\Desktop\\Names.txt");
+    Scanner sc = new Scanner(file);
 
     @FXML
     private RadioButton cheeseButton;
@@ -68,17 +76,25 @@ public class student_orderUI {
     @FXML
     private RadioButton vegButton;
 
-    
+    public student_orderUI() throws Exception {
+    }
+
+
     @FXML
     void placeOrder(ActionEvent event) {
         loginPopup.setVisible(true);
     }
 
+
+
     @FXML
-    void validateLogin(ActionEvent event) {
+    void validateLogin(ActionEvent event) throws FileNotFoundException {
+        boolean bool;
         messageLabel.setWrapText(true);
+        Customer student = new Customer(usernameField.getText());
+        bool = student.checkStudent();
         //placeholder credentials
-        if (usernameField.getText().equals("asustudent")) {
+        if (bool) {
             messageLabel.setText("Your order has been placed!!");
 
             //accept order
