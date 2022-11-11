@@ -1,9 +1,5 @@
-package com.example.phaseiiicode;
+package com.example.project360fx;
 
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,9 +11,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileNotFoundException;
+import java.util.Queue;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+
 public class student_orderUI {
-    File file = new File("C:\\Users\\Benit\\OneDrive\\Desktop\\Names.txt");
-    Scanner sc = new Scanner(file);
+
+
+    File order;
+    File orderNums = new File("C:\\Users\\Wesj2\\Desktop\\Orders.txt");
+    Pizza_Order pizza;
+    String orderNum = "";
+
 
     @FXML
     private RadioButton cheeseButton;
@@ -76,29 +83,73 @@ public class student_orderUI {
     @FXML
     private RadioButton vegButton;
 
-    public student_orderUI() throws Exception {
-    }
-
 
     @FXML
     void placeOrder(ActionEvent event) {
+        boolean mush = false;
+        boolean ex = false;
+        boolean onion = false;
+        boolean olive = false;
+        String type = "";
+
+        if(mushroomButton.isSelected()){
+            mush = true;
+        }
+        if(extraButton.isSelected()){
+            ex = true;
+        }
+        if(onionButton.isSelected()){
+            onion = true;
+        }
+        if(olivesButton.isSelected()){
+            olive = true;
+        }
+
+        if(pepperoniButton.isSelected()){
+            type = "Pepperoni";
+        }
+        else if(cheeseButton.isSelected()){
+            type = "Cheese";
+        }
+        else if(vegButton.isSelected()){
+            type = "Vegetable";
+        }
+        else{
+            orderTextArea.setText("Please Select a Pizza Type!!!");
+            return;
+        }
+
+
+        pizza = new Pizza_Order(type,mush,onion,olive,ex,orderNum);
+
+        orderTextArea.setText(pizza.print_order());
+        totalTextArea.setText("$" + String.format("%.2f",pizza.get_Price()));
+
+
         loginPopup.setVisible(true);
     }
 
 
-
     @FXML
-    void validateLogin(ActionEvent event) throws FileNotFoundException {
+    void validateLogin(ActionEvent event) throws IOException {
         boolean bool;
         messageLabel.setWrapText(true);
         Customer student = new Customer(usernameField.getText());
+        pizza.set_Num(usernameField.getText());
         bool = student.checkStudent();
         //placeholder credentials
         if (bool) {
-            messageLabel.setText("Your order has been placed!!");
+            orderTextArea.setText("Your order has been placed!!\n" + pizza.print_order());
+            loginPopup.setVisible(false);
+            order = new File(pizza.get_Num() + ".txt");
+            FileWriter myWriter = new FileWriter(pizza.get_Num() + ".txt");
+            myWriter.write(pizza.print_order());
+            myWriter.close();
+            FileWriter myWriter2 = new FileWriter("C:\\Users\\Wesj2\\Desktop\\Orders.txt", true);
+            myWriter2.write(pizza.get_Num() + "\n");
+            myWriter2.close();
 
-            //accept order
-            //TODO
+
 
         }
         else {

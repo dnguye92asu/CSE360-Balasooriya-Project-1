@@ -1,4 +1,6 @@
-public class Pizza_Order extends Order  {
+package com.example.project360fx;
+
+public class Pizza_Order {
     private String type;
 
     private boolean mush;
@@ -9,35 +11,35 @@ public class Pizza_Order extends Order  {
 
     private boolean extraChz;
 
-    private int number;
+    private String number;
 
     private double price;
 
     private String status;
 
-    private Order order;
 
-    public void Pizza_Order() {
+
+
+    public Pizza_Order() {
         type = "";
         mush = false;
         onion = false;
         olive = false;
         extraChz = false;
-        number = 1;
+        number = "";
         price = 0;
         status = "";
     }
 
-    public void Pizza_Order(String pizzaType, boolean m, boolean hasOnion, boolean hasOlive, boolean ex, int num) {
+    public Pizza_Order(String pizzaType, boolean m, boolean hasOnion, boolean hasOlive, boolean ex, String num) {
         type = pizzaType;
         mush = m;
         onion = hasOnion;
         olive = hasOlive;
         extraChz = ex;
         number = num;
-        status = "";
+        status = "New Order";
         price = get_Price();
-
 
 
     }
@@ -51,6 +53,7 @@ public class Pizza_Order extends Order  {
     }
 
     public boolean get_Mush() {
+
         return mush;
     }
 
@@ -82,38 +85,36 @@ public class Pizza_Order extends Order  {
         extraChz = b;
     }
 
-    public int get_Num() {
-        return num;
+    public String get_Num() {
+        return number;
     }
 
-    public void set_Num(int i) {
-        num = i;
+    public void set_Num(String i) {
+        number = i;
     }
 
     public double get_Price() {
 
         int toppings = 0;
 
-        if(type.equals("Pepperoni")){
+        if (type.equals("Pepperoni")) {
             price = 12.00;
-        }
-        else if(type.equals("Vegetable")){
+        } else if (type.equals("Vegetable")) {
             price = 15.00;
-        }
-        else{
+        } else {
             price = 10.00;
         }
 
-        if(mush){
+        if (mush) {
             price = price + 1.50;
         }
-        if(olive){
+        if (olive) {
             price = price + 1.50;
         }
-        if(onion){
+        if (onion) {
             price = price + 1.50;
         }
-        if(extraChz){
+        if (extraChz) {
             price = price + 1.50;
         }
 
@@ -121,7 +122,7 @@ public class Pizza_Order extends Order  {
     }
 
     public void set_Price(double i) {
-        price =  i;
+        price = i;
     }
 
     public String get_Status() {
@@ -130,5 +131,27 @@ public class Pizza_Order extends Order  {
 
     public void set_Status(String s) {
         status = s;
+    }
+
+    public String print_order(){
+        String s;
+
+        s = "Order Number: " + number + "\n" + type + "\n";
+        if (mush) {
+            s = s + "+ Mushroom\n";
+        }
+        if (olive) {
+            s = s + "+ Olive\n";
+        }
+        if (onion) {
+            s = s + "+ Onion\n";
+        }
+        if (extraChz) {
+            s = s + "+ Extra Cheese\n";
+        }
+        s = s + "Status: " + status;
+
+        return s;
+
     }
 }
