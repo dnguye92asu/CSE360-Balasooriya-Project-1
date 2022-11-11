@@ -1,3 +1,6 @@
+package com.example.phaseiiicode;
+
+import java.io.FileNotFoundException;
 import java.util.Objects;
 
 import javafx.event.ActionEvent;
@@ -22,8 +25,10 @@ public class staffUI {
     private TextField usernameField;
 
     @FXML
-    void validateLogin(ActionEvent event) {
-        if (usernameField.getText().equals("agent")) {
+    void validateLogin(ActionEvent event) throws FileNotFoundException {
+        Employee employee = new Employee(usernameField.getText());
+        String whichEmployee = employee.checkEmployee();
+        if (whichEmployee.equals("Agent")) {
             try {
                 //TODO
                 //open the processing agent UI
@@ -41,7 +46,7 @@ public class staffUI {
                 e.printStackTrace();
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
             }
-        } else if (usernameField.getText().equals("cook")) {
+        } else if (whichEmployee.equals("Cook")) {
             try {
                 //TODO
                 //open the cook UI
