@@ -1,4 +1,3 @@
-package com.example.project360fx;
 
 public class Pizza_Order {
     private String type;

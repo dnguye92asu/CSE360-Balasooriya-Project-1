@@ -11,30 +11,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project360fx.student_orderUI">
+<AnchorPane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student_orderUI">
     <children>
         <SplitPane dividerPositions="0.5" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
-                        <Label fx:id="pizzaTypeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="39.0" prefHeight="26.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Choose your pizza types:" textAlignment="CENTER" />
-                        <RadioButton fx:id="pepperoniButton" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Pepperoni          $12">
+                        <Label fx:id="pizzaTypeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="38.0" prefHeight="26.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Type of Pizza:" textAlignment="CENTER" />
+                        <RadioButton fx:id="pepperoniButton" layoutX="65.0" layoutY="83.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Pepperoni                 $12">
                             <toggleGroup>
                                 <ToggleGroup fx:id="group" />
                             </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="vegButton" layoutX="14.0" layoutY="123.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Vegetable          $15" toggleGroup="$group" />
-                        <RadioButton fx:id="cheeseButton" layoutX="14.0" layoutY="168.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Cheese               $10" toggleGroup="$group" />
-                        <Label fx:id="toppingLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="237.0" prefHeight="26.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Choose your toppings" textAlignment="CENTER" />
-                        <CheckBox fx:id="mushroomButton" layoutX="14.0" layoutY="292.0" mnemonicParsing="false" text="Mushrooms" />
-                        <CheckBox fx:id="onionButton" layoutX="139.0" layoutY="292.0" mnemonicParsing="false" text="Onion" />
-                        <CheckBox fx:id="olivesButton" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" text="Olives" />
-                        <CheckBox fx:id="extraButton" layoutX="139.0" layoutY="340.0" mnemonicParsing="false" text="Extra Cheese" />
+                        <RadioButton fx:id="vegButton" layoutX="65.0" layoutY="125.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Vegetable                 $15" toggleGroup="$group" />
+                        <RadioButton fx:id="cheeseButton" layoutX="65.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="167.0" text="Cheese                      $10" toggleGroup="$group" />
+                        <Label fx:id="toppingLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="224.0" prefHeight="26.0" prefWidth="167.0" style="-fx-border-color: black; -fx-border-radius: 5px;" text="Toppings: (+$1.50 each)" textAlignment="CENTER" />
+                        <CheckBox fx:id="mushroomButton" layoutX="104.0" layoutY="266.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Mushrooms" />
+                        <CheckBox fx:id="onionButton" layoutX="104.0" layoutY="333.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Onion" />
+                        <CheckBox fx:id="olivesButton" layoutX="104.0" layoutY="300.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="89.0" text="Olives" />
+                        <CheckBox fx:id="extraButton" layoutX="104.0" layoutY="367.0" mnemonicParsing="false" text="Extra Cheese" />
                     <AnchorPane fx:id="loginPopup" layoutX="22.0" layoutY="83.0" prefHeight="200.0" prefWidth="253.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10px;" visible="false">
                         <children>
-                            <TextField fx:id="usernameField" layoutX="29.0" layoutY="87.0" prefHeight="26.0" prefWidth="194.0" promptText="Username" />
-                            <Label fx:id="messageLabel" alignment="CENTER" layoutX="10.0" layoutY="25.0" prefHeight="18.0" prefWidth="230.0" text="Please enter your credentials" />
-                            <Button fx:id="loginButton" layoutX="94.0" layoutY="155.0" mnemonicParsing="false" onAction="#validateLogin" text="Login" />
+                            <TextField fx:id="usernameField" layoutX="30.0" layoutY="87.0" prefHeight="26.0" prefWidth="194.0" promptText="Username" />
+                            <Label fx:id="messageLabel" alignment="CENTER" layoutX="12.0" layoutY="31.0" prefHeight="18.0" prefWidth="230.0" text="Please enter your ASURITE ID!" />
+                            <Button fx:id="loginButton" layoutX="104.0" layoutY="144.0" mnemonicParsing="false" onAction="#validateLogin" text="Login" />
                         </children>
                     </AnchorPane>
                     </children>

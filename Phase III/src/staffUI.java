@@ -1,4 +1,3 @@
-package com.example.phaseiiicode;
 
 import java.io.FileNotFoundException;
 import java.util.Objects;
@@ -35,7 +34,7 @@ public class staffUI {
                 Stage agent = new Stage();
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agent.fxml")));
                 agent.setTitle("Pending orders");
-                agent.setScene(new Scene(root, 342, 400));
+                agent.setScene(new Scene(root, 320, 400));
                 agent.show();
 
                 //close the login window

@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staffUI">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CookUI">
    <children>
-      <TitledPane fx:id="readyPane" animated="false" layoutX="24.0" layoutY="20.0" prefHeight="325.0" prefWidth="214.0" text="Ready to Cook">
+      <TitledPane fx:id="readyPane" animated="false" layoutX="24.0" layoutY="20.0" prefHeight="325.0" prefWidth="214.0" text="Ready To Cook">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="readyTable" layoutX="2.0" prefHeight="259.0" prefWidth="207.0">
-                    <columns>
-                        <TableColumn prefWidth="212.80001527071" text="Order" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="cookButton" layoutX="150.0" layoutY="265.0" mnemonicParsing="false" text="Cook" />
+                  <Button fx:id="cookButton" layoutX="155.0" layoutY="260.0" mnemonicParsing="false" onAction="#orderCook" text="Cook" />
+                  <ListView fx:id="readyList" layoutX="14.0" layoutY="14.0" prefHeight="240.0" prefWidth="185.0" />
+                  <Button fx:id="readyDetails" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" onAction="#getReadyDetails" text="Details" />
                </children>
             </AnchorPane>
         </content>
@@ -26,12 +23,9 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="cookingTable" layoutX="2.0" prefHeight="259.0" prefWidth="207.0">
-                     <columns>
-                        <TableColumn prefWidth="212.80001527071" text="Order" />
-                     </columns>
-                  </TableView>
-                  <Button fx:id="finishButton" layoutX="150.0" layoutY="264.0" mnemonicParsing="false" text="Finish" />
+                  <Button fx:id="finishButton" layoutX="150.0" layoutY="260.0" mnemonicParsing="false" onAction="#orderReady" text="Finish" />
+                  <ListView fx:id="cookingList" layoutX="14.0" layoutY="14.0" prefHeight="240.0" prefWidth="185.0" />
+                  <Button fx:id="cookingDetails" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" onAction="#getCookingDetails" text="Details" />
                </children>
             </AnchorPane>
          </content>
@@ -40,15 +34,18 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="finishedTable" layoutX="2.0" prefHeight="259.0" prefWidth="207.0">
-                     <columns>
-                        <TableColumn prefWidth="212.80001527071" text="Order" />
-                     </columns>
-                  </TableView>
-                  <Button fx:id="finalizeButton" layoutX="148.0" layoutY="264.0" mnemonicParsing="false" text="Finalize" />
+                  <Button fx:id="finalizeButton" layoutX="143.0" layoutY="260.0" mnemonicParsing="false" onAction="#orderFinish" text="Finalize" />
+                  <ListView fx:id="finishedList" layoutX="14.0" layoutY="14.0" prefHeight="240.0" prefWidth="185.0" />
+                  <Button fx:id="finishedDetails" layoutX="14.0" layoutY="260.0" mnemonicParsing="false" onAction="#getFinishedDetails" text="Details" />
                </children>
             </AnchorPane>
          </content>
       </TitledPane>
+      <AnchorPane fx:id="detailsPane" layoutX="255.0" layoutY="83.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 10;" visible="false">
+         <children>
+            <TextArea fx:id="orderDetails" layoutX="25.0" layoutY="14.0" prefHeight="133.0" prefWidth="200.0" />
+            <Button fx:id="okButton" layoutX="85.0" layoutY="161.0" mnemonicParsing="false" onAction="#closeDetails" prefHeight="25.0" prefWidth="80.0" text="OK" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

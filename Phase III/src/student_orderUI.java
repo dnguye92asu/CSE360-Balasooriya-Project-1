@@ -1,4 +1,3 @@
-package com.example.project360fx;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,9 +20,9 @@ public class student_orderUI {
 
 
     File order;
-    File orderNums = new File("C:\\Users\\Wesj2\\Desktop\\Orders.txt");
+    File orderNums = new File("Orders.txt");
     Pizza_Order pizza;
-    String orderNum = "";
+    String orderNum = "?";
 
 
     @FXML
@@ -139,13 +138,13 @@ public class student_orderUI {
         bool = student.checkStudent();
         //placeholder credentials
         if (bool) {
-            orderTextArea.setText("Your order has been placed!!\n" + pizza.print_order());
+            orderTextArea.setText("Your order has been placed!\n" + pizza.print_order());
             loginPopup.setVisible(false);
             order = new File(pizza.get_Num() + ".txt");
             FileWriter myWriter = new FileWriter(pizza.get_Num() + ".txt");
             myWriter.write(pizza.print_order());
             myWriter.close();
-            FileWriter myWriter2 = new FileWriter("C:\\Users\\Wesj2\\Desktop\\Orders.txt", true);
+            FileWriter myWriter2 = new FileWriter("Orders.txt", true);
             myWriter2.write(pizza.get_Num() + "\n");
             myWriter2.close();
 

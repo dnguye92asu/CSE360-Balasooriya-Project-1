@@ -1,5 +1,3 @@
-package com.example.phaseiiicode;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -7,7 +5,7 @@ import java.util.Scanner;
 public class Customer {
     String id;
     String fileWord;
-    File file = new File("C:\\Users\\Benit\\OneDrive\\Desktop\\Names.txt");
+    File file = new File("Names.txt");
     Scanner sc = new Scanner(file);
 
     public Customer() throws FileNotFoundException {
